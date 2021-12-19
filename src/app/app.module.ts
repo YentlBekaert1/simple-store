@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { sidenavReducer } from './state/sidenav.reducer';
+import { resortReducer } from './state/resort.reducer';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { sidenavReducer } from './state/sidenav.reducer';
     MatSidenavModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({sidenav: sidenavReducer}, {})
+    StoreModule.forRoot({sidenav: sidenavReducer,resort: resortReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

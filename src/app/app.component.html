@@ -7,6 +7,11 @@
     <button mat-raised-button color="primary" (click)="showSidenav()">Show Sidenav</button>
     <button mat-raised-button color="warn" (click)="hideSidenav()">Hide Sidenav</button>
     <div>sidenav is {{sidenavHidden?"hidden":"displayed"}}</div>
+    <ul *ngFor="let resort of this.resorts$|async; trackBy: identifyResort">
+      <li>
+        <a [attr.href]="resort.url" target="_blank">{{resort.name}}</a>
+      </li>
+    </ul>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
