@@ -1,4 +1,14 @@
 <h1>{{title}}</h1>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [opened]="!((sidenavHidden$ | async) || false)">
+    Sidenav content
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-raised-button color="primary" (click)="showSidenav()">Show Sidenav</button>
+    <button mat-raised-button color="warn" (click)="hideSidenav()">Hide Sidenav</button>
+    <div>sidenav is {{sidenavHidden?"hidden":"displayed"}}</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
