@@ -17,8 +17,8 @@ export class ResortEffects {
         ofType(loadResorts),
         mergeMap(() => this.resortService.loadAll()
         .pipe(
-            map(resorts => loadResortsSuccess({resorts}),
-            catchError((error) => of(loadResortsFail({error})))
+            map(resorts => loadResortsSuccess({resorts})),
+            catchError((error) => of(loadResortsFail({error}))
         )))));
 
 }
