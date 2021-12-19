@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   resorts$=this.store.select(selectResortResorts);
   resorts=initialResortState.resorts;
 
-  constructor(private store: Store<AppState>, private resortService: ResortService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.sidenavHidden$.subscribe(hidden =>
@@ -34,10 +34,7 @@ export class AppComponent implements OnInit {
       this.resorts = state.resort.resorts;
       console.log(state);
     });
-    this.resortService.loadAll().subscribe(resorts => {
-      this.store.dispatch(loadResortsSuccess({resorts}))
-      console.log(resorts);
-    })
+    this.store.dispatch(loadResorts());
   }
 
   hideSidenav() {
