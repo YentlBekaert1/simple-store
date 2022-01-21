@@ -4,7 +4,7 @@
     Sidenav content
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-raised-button color="primary" (click)="showSidenav()">Show Sidenav</button>
+    <button mat-raised-button color="primary" (click)="showSidenav()">Show Sidenav </button>
     <button mat-raised-button color="warn" (click)="hideSidenav()">Hide Sidenav</button>
     <div>sidenav is {{sidenavHidden?"hidden":"displayed"}}</div>
     <ul *ngFor="let resort of this.resorts$|async; trackBy: identifyResort">
