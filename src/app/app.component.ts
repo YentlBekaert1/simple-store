@@ -1,8 +1,8 @@
-import { Component, OnInit, TrackByFunction } from '@angular/core';
+import { Component, OnInit, TrackByFunction, Output, EventEmitter} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './state/app.state';
 import { hideSidenav, showSidenav } from './state/sidenav.actions';
-import { loadResorts, loadResortsSuccess } from './state/resort.actions';
+import { DeleteResort, loadResorts, loadResortsSuccess } from './state/resort.actions';
 import { initialSidenavState } from './state/sidenav.reducer';
 import { initialResortState } from './state/resort.reducer';
 import { selectSidenav, selectSidenavHidden } from './state/sidenav.selector';
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     this.sidenavHidden$.subscribe(hidden =>
       console.log(hidden)
     );
-    this.store.subscribe(state => {      
+    this.store.subscribe(state => {
       this.sidenavHidden = state.sidenav.hidden;
       this.resorts = state.resort.resorts;
       console.log(state);
@@ -40,10 +40,20 @@ export class AppComponent implements OnInit {
   hideSidenav() {
     this.store.dispatch(hideSidenav());
   }
-  
+
   showSidenav() {
     this.store.dispatch(showSidenav());
   }
 
   identifyResort: TrackByFunction<Resort> = (_, resort) => (resort.id);
+
+  deleteItem(resortId:string){
+      console.log(resortId);
+      if(confirm('Are you sure')){
+        this.store.dispatch(DeleteResort({ resortId }));
+      }
+  }
+  UpdateItem(resortId:string){
+    //this.store.dispatch(showSidenav());
+  }
 }

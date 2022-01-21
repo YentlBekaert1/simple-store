@@ -1,0 +1,14 @@
+mat-sidenav-content{
+  display: flex;
+  min-height: 100vh;
+}
+div.listresorts{
+  width: 60vw;
+  /*background-color: blue;*/
+
+}
+div.updateresort{
+  width: 40vw;
+  padding: 20px 5vw;
+ /* background-color: red;*/
+}

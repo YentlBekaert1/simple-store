@@ -1,0 +1,51 @@
+
+<div>
+  <mat-card class="example-card-large">
+    <h3>Update Resort</h3>
+    <hr />
+    <form
+    (submit)="submitHandler()"
+    [formGroup]="postForm"
+    >
+      <div class="example-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" name="name" formControlName="name"  matInput />
+          </mat-form-field>
+      </div>
+
+      <div class="example-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Lat</mat-label>
+          <input type="text" name="lat" formControlName="lat"  matInput />
+        </mat-form-field>
+      </div>
+
+    <div class="example-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Lng</mat-label>
+          <input type="text" name="lng" formControlName="lng"  matInput />
+        </mat-form-field>
+      </div>
+
+      <div class="example-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Satus</mat-label>
+          <input type="text" name="status" formControlName="status"  matInput />
+        </mat-form-field>
+      </div>
+
+      <div class="example-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Url</mat-label>
+          <input type="text" name="url" formControlName="url"  matInput />
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" [disabled]="!postForm.valid">Update Resort</button>
+
+      </div>
+    </form>
+    <p>Form Status: {{ postForm.status }}</p>
+  </mat-card>
+</div>

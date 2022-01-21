@@ -13,4 +13,15 @@ export const loadResortsFail = createAction(
 export const loadResortsSuccess = createAction(
     '[resorts] Load Success',
     props<{ resorts: Resort[] }>()
-);  
+);
+
+export const updateResort = createAction(
+  '[resorts] Update',
+  props<{ resort: Resort }>()
+);
+
+export const DeleteResort = createAction(
+  '[resorts] Delete',
+  props<{ resortId: string }>()
+);
+

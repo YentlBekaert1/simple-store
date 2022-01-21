@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { AppState } from "./app.state";
 import { ResortState } from "./resort.state";
 
-export const selectResort = createFeatureSelector<ResortState>('resort')
+export const selectResort = createFeatureSelector<ResortState>('resort');
 
 export const selectResortResorts = createSelector(
     selectResort,
@@ -18,3 +18,6 @@ export const selectResortLoading = createSelector(
     selectResort,
     (state: ResortState) => state.loading
 );
+
+export const getResortById = (resortId : string | null) => createSelector(selectResort, (state) => {return state.resorts.find(c => c.id === resortId) });
+

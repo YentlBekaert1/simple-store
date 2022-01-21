@@ -4,14 +4,23 @@
     Sidenav content
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-raised-button color="primary" (click)="showSidenav()">Show Sidenav </button>
-    <button mat-raised-button color="warn" (click)="hideSidenav()">Hide Sidenav</button>
-    <div>sidenav is {{sidenavHidden?"hidden":"displayed"}}</div>
-    <ul *ngFor="let resort of this.resorts$|async; trackBy: identifyResort">
-      <li>
-        <a [attr.href]="resort.url" target="_blank">{{resort.name}}</a>
-      </li>
-    </ul>
+    <div class="listresorts">
+      <button mat-raised-button color="primary" (click)="showSidenav()">Show Sidenav</button>
+      <button mat-raised-button color="warn" (click)="hideSidenav()">Hide Sidenav</button>
+      <div>sidenav is {{sidenavHidden?"hidden":"displayed"}}</div>
+      <ul *ngFor="let resort of this.resorts$|async; trackBy: identifyResort">
+        <li>
+          <a [attr.href]="resort.url" target="_blank">{{resort.name}}</a>
+          <button mat-stroked-button (click)="deleteItem(resort.id)">Delete</button>
+          <button mat-stroked-button [routerLink]="['update' , resort.id]">Update</button>
+        </li>
+      </ul>
+    </div>
+    <div class="updateresort">
+      <div class="updateform">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
@@ -23,4 +32,4 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<router-outlet></router-outlet>
+
